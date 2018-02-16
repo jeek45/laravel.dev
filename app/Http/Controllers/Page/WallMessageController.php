@@ -62,10 +62,13 @@ class WallMessageController extends Controller
     public function update(Request $request)
     {
         $message = Message::find($request->mes_id);
-        $message->text = $request->text;
-        $message->touch();
-        $message->save;
-        return  trans('wall_messages.message_update');
+        if((Auth::user()->ia_admin)or($message->user_id==Auth::user()->id)) {
+            $message->text = $request->text;
+            $message->touch();
+            $message->save;
+            return trans('wall_messages.message_update');
+        }
+        else die;
     }
 
     /* is ajax method delete message
@@ -73,10 +76,14 @@ class WallMessageController extends Controller
      * @return bool
      */
     public function destroy(Request $request)
-    {
-        $message= Message::find($request->mes_id);
-        if($message->delete())
-        return trans('wall_messages.message_deleted');
+    {   $message= Message::find($request->mes_id);
+        if((Auth::user()->ia_admin)or($message->user_id==Auth::user()->id))
+        {
+            $message = Message::find($request->mes_id);
+            if ($message->delete())
+                return trans('wall_messages.message_deleted');
+            else die;
+        }
         else die;
     }
 }
