@@ -12,9 +12,8 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-	
-    'name' => env('APP_NAME', 'SiteSoft'),
-	'github_link' => 'https://github.com/jeek45/laravel.dev',
+
+    'name' => env('APP_NAME', 'laravel'),
 
     /*
     |--------------------------------------------------------------------------

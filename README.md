@@ -1,66 +1,58 @@
-# laravel.dev
-тестовое задание
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<b>Задание "Стена сообщений"</b>
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
 
-<i>Главная страница</i>
+## About Laravel
 
-Содержит список всех сообщений. Сортировка - снизу-вверх (последние добавленное сообщение - сверху). У каждого сообщения, помимо текста, указано имя (username) автора и время добавления.
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
 
-Если пользователь авторизован, ему становится доступна форма отправки сообщения.
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Сообщение не может быть пустым (или состоять только из пробелов). При попытке отправки такого сообщения - пользователю выдается предупреждение “Сообщение не может быть пустым”.
+Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
 
-После успешной отправки, сообщение пользователя сразу появляется на “стене”.
+## Learning Laravel
 
-Добавление, правку и удаление своих сообщений, реализовать на ajax (если не используется веб-сокет)
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
 
-Авторизация и Регистрация
+If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
-Если решение без использования OAuth, то регистрация происходит на усмотрение программиста. Пароль не может быть пустым. Главное правило: валидность и исключение коллизий.
+## Laravel Sponsors
 
-Блок справа показывается только авторизованному пользователю. Содержит Имя пользователя и ссылку “Выход”, нажав на которую пользователь выходит из под своей учетной записи.
+We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
 
-<i>Роли пользователей</i>
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[British Software Development](https://www.britishsoftware.co)**
+- [Fragrantica](https://www.fragrantica.com)
+- [SOFTonSOFA](https://softonsofa.com/)
+- [User10](https://user10.com)
+- [Soumettre.fr](https://soumettre.fr/)
+- [CodeBrisk](https://codebrisk.com)
+- [1Forge](https://1forge.com)
+- [TECPRESSO](https://tecpresso.co.jp/)
+- [Pulse Storm](http://www.pulsestorm.net/)
+- [Runtime Converter](http://runtimeconverter.com/)
+- [WebL'Agence](https://weblagence.com/)
 
-Сделать RBAC на основе битовой маски. UI делать не обязательно, но будет плюсом (достаточно код и нужные значения в базе).
+## Contributing
 
-Роли:
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-· Админ (добавлять/изменять/удалять все сообщения)
+## Security Vulnerabilities
 
-· Пользователь (добавлять/изменять/удалять свои сообщения)
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## License
 
-<b>Реализация</b>
-
-Обкатывалаось на Openserver
-
-git clone https://github.com/jeek45/laravel.dev.git
-
-composer update && bower update
-
-php artisan key:generate
-
-php artisan migrate:refresh --seed
-
-настройки в .env
-
-Сиды создадут трех юзеров admin:admin user:123456 demo:demo, сообщения, и таблицу с маской
-
-RBAC реализовал через middleware (rolepremission) и одну таблицу 'premission', которая подхватывает поле is_admin юзера
-P.s в задание не было указано, что для каждого пользователя свои настройки. Поэтому разграничение только на Админы и Пользователи.
-Так бы пришлось вязать по user_id
-
-Ajax реализован для 'update' и 'delete'. Для создания оставил form.post.
-
-Поигрался с иконками( подтягиваются 8 иконок, и берется отстаток от деления user_id - выступающий именем изображения)
-
-
-
-
-
-
-
-
-
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
